@@ -1,55 +1,19 @@
-### 1.hzapp
+### Vue 源码分析
 
-#### 1.1 Project setup
-```
-npm install
-```
-
-#### 1.2 Compiles and hot-reloads for development
-```
-npm run dev 
-```
-
-#### 1.3 Compiles and minifies for production
-```
-npm run build
-```
-
-#### 1.4 Lints and fixes files
-```
-npm run lint
-```
-### 2、开发日志
-#### 2.1 项目基础插件安装
-##### 2.1.1  vue-router&vuex
-> npm install vue-router --save
+> src/hvue/
 >
-> npm install vuex --save
+> - 响应式原理
+> - 虚拟 DOM
+> - 模板编译
+> - Vue 原型相关工具函数的实现
 
-##### 2.1.2 axios
+### VueRouter 源码解析
 
-> npm install axios
-
-##### 2.1.3 sass-loader
-
-> npm install sass-loader node-sass webpack --save-dev
+> src/router/h-router/
 >
-> 
+> - history 实现
+> - 路由组件实现
 
-#### 2.2  项目目录划分
+### VueX 源码解析
 
-```shell
-└── src
-    ├── App.vue
-    ├── api 
-    ├── assets
-    │   └── logo.png
-    ├── components
-    │   └── HelloWorld.vue
-    ├── main.js
-    ├── router
-    ├── store
-    ├── utils
-    └── views
-```
-
+> src/store/kvuex/
