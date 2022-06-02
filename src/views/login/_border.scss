@@ -1,0 +1,56 @@
+$border-color: #000 !default;
+
+.border,
+.border-top,
+.border-bottom,
+.border-left,
+.border-right {
+  position: relative;
+}
+.border:after,
+.border-top:after,
+.border-bottom:after,
+.border-left:after,
+.border-right:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  height: 200%;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  -webkit-transform-origin: left top;
+  transform-origin: left top;
+}
+.border:after {
+  border: 1px solid $border-color;
+}
+.border-top:after {
+  border-top: 1px solid $border-color;
+}
+.border-bottom:after {
+  border-top: 1px solid $border-color;
+}
+.border-left:after {
+  border-top: 1px solid $border-color;
+}
+.border-right:after {
+  border-top: 1px solid $border-color;
+}
+/* 2倍屏 */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  .border-bottom::after {
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+  }
+}
+/* 3倍屏 */
+@media only screen and (-webkit-min-device-pixel-ratio: 3) {
+  .border-bottom::after {
+    -webkit-transform: scaleY(0.33);
+    transform: scaleY(0.33);
+    width: 300%;
+    height: 300%;
+  }
+}
