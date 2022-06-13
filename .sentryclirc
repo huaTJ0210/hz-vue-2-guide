@@ -1,0 +1,7 @@
+[auth]
+token='f0c7271d44824a8bbd64a7e8dc547fdb255307b49c114507ad57e60bf4cc62ca'
+
+[defaults]
+url ='http://127.0.0.1:9000'
+org='zcbl-sentry'
+project='vue-hua-test'

@@ -1,44 +1,45 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+
+import Home from '@/views/home/home.vue'
+import Cart from '@/views/cart/cart.vue'
+import Catagory from '@/views/catagory/catagory.vue'
+import catagoryList from '@/views/catagory/catagoryList.vue'
+import Profile from '@/views/profile/profile.vue'
+import HVue from '@/views/vue/index.vue'
 
 // (1) Vue.use()函数内部具体执行了什么？
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 // (2) 路由懒加载：
 
 // (3)webpackChunkName:Webpack 会将任何一个异步模块与相同的块名称组合到相同的异步块中。
-const Home = () =>
-  import(/* webpackChunkName: "group-tab" */ '@/views/home/home.vue');
+// const Home = () =>
+//   import(/* webpackChunkName: "group-tab" */ '@/views/home/home.vue');
 
-const HomePageOne = () => import('@/views/home/cpns/pageOne.vue');
-const HomePageTwo = () => import('@/views/home/cpns/pageTwo.vue');
+const HomePageOne = () => import('@/views/home/cpns/pageOne.vue')
+const HomePageTwo = () => import('@/views/home/cpns/pageTwo.vue')
 
-const Cart = () =>
-  import(/* webpackChunkName: "group-tab" */ '@/views/cart/cart.vue');
-const Catagory = () =>
-  import(/* webpackChunkName: "group-tab" */ '@/views/catagory/catagory.vue');
-const catagoryList = () =>
-  import(
-    /* webpackChunkName: "group-tab" */ '@/views/catagory/catagoryList.vue'
-  );
-const Profile = () =>
-  import(/* webpackChunkName: "group-tab" */ '@/views/profile/profile.vue');
+//const Cart = () => import(/* webpackChunkName: "group-tab" */ '@/views/cart/cart.vue')
+//const Catagory = () => import(/* webpackChunkName: "group-tab" */ '@/views/catagory/catagory.vue')
+//const catagoryList = () => import(/* webpackChunkName: "group-tab" */ '@/views/catagory/catagoryList.vue')
+//const Profile = () => import(/* webpackChunkName: "group-tab" */ '@/views/profile/profile.vue')
 
-const User = () => import('@/views/profile/user-info/user.vue');
-const Address = () => import('@/views/profile/user-info/address.vue');
+const User = () => import('@/views/profile/user-info/user.vue')
+const Address = () => import('@/views/profile/user-info/address.vue')
 
 // 登录
-const Login = () => import('@/views/login/login.vue');
+const Login = () => import('@/views/login/login.vue')
 // Vue
-const HVue = () => import('@/views/vue/index.vue');
+//const HVue = () => import('@/views/vue/index.vue')
 
 /**
  *  Element框架组件学习
  */
 
-const ELTable = () => import('@/views/el-table/table.vue');
-const ELLayout = () => import('@/views/el-layout/ellayout.vue');
-const ELRadio = () => import('@/views/el-radio/index.vue');
+const ELTable = () => import('@/views/el-table/table.vue')
+const ELLayout = () => import('@/views/el-layout/ellayout.vue')
+const ELRadio = () => import('@/views/el-radio/index.vue')
 
 const routes = [
   {
@@ -109,8 +110,8 @@ const routes = [
       showTab: true
     },
     beforeEnter: (to, from, next) => {
-      console.log('---beforeEnter---');
-      next();
+      console.log('---beforeEnter---')
+      next()
     }
   },
   {
@@ -119,8 +120,8 @@ const routes = [
     name: 'user',
     props: true,
     beforeEnter: (to, from, next) => {
-      console.log('---beforeEnter---');
-      next();
+      console.log('---beforeEnter---')
+      next()
     }
   },
   {
@@ -140,18 +141,18 @@ const routes = [
     component: HVue,
     name: 'hvue'
   }
-];
+]
 
-const router = new VueRouter({ routes, mode: 'history' });
+const router = new VueRouter({ routes })
 
 /*
   解决router连续push相同的地址导致错误未捕获的问题
 */
 
-const originalPush = VueRouter.prototype.push;
+const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
-  return originalPush.call(this, location).catch(err => console.log(err));
-};
+  return originalPush.call(this, location).catch(err => console.log(err))
+}
 
 // (4)全局前置路由守卫 ： 登录状态判断、用户权限判断、
 router.beforeEach((to, from, next) => {
@@ -172,19 +173,19 @@ router.beforeEach((to, from, next) => {
   });
   */
 
-  console.log('---beforeEach---');
-  next();
-});
+  console.log('---beforeEach---')
+  next()
+})
 
 router.beforeResolve((to, from, next) => {
-  console.log('---beforeResolve---');
+  console.log('---beforeResolve---')
 
-  next();
-});
+  next()
+})
 
 // router.afterEach((to, from) => {
 //   // ...
 //   console.log('--afterEach---')
 // })
 
-export default router;
+export default router

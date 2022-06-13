@@ -11,6 +11,7 @@
     <router-link to="/layout">Element-layout</router-link>
     <br />
     <router-link to="/radio">Element-radio</router-link>
+    <button @click="errorTest">触发异常</button>
     <br />
   </div>
 </template>
@@ -28,6 +29,9 @@ export default {
     push: function() {
       console.log(this)
       this.$router.push({ name: 'homePageOne' })
+    },
+    errorTest() {
+      console.log(window.a.b())
     }
   },
   created() {},
